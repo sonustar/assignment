@@ -263,6 +263,11 @@ html, body {
    
 }
 
+#loweritem1:hover{
+  background-color: #D5D7DA;
+
+}
+
 #leftupperdiv input {
   width: 80%;
   height: 10%;
