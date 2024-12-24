@@ -230,34 +230,35 @@ html, body {
 
 
 #container{
-  width: 100%;
-  height: 100%;
+  min-width: 100vw;
+  min-height: 100%;
   display: flex;
   color: #181D27;
   /* background-color: #081735; */
 }
 
 #leftside{
-  width: 13%;
+  min-width: 13vw;
   background-color: #1570EF;
   height: 100%;
 }
 
 #rightside{
-  width: 87%;
+  min-width: 87vw;
   background-color:#FAFAFA;
   padding: 20px;
   height: 100%;
 }
 
 #leftupperdiv{
-  width: auto;
+  min-width: inherit;
   height: 30%;
-  background-color:white;
+  background-color:#FAFAFA;
+  
 }
 
 #leftupperdiv img{
-  max-width: 90%;
+  max-width: 13vw;
   max-height: 80%;
   object-fit: cover;
    
@@ -269,19 +270,21 @@ html, body {
 }
 
 #leftupperdiv input {
-  width: 80%;
+  min-width: 10vw;
   height: 10%;
-  margin: 10px;
+  margin: 15px;
+  padding: 2px;
   border-radius: 5px;
   border: solid 1px ;
    
 }
 
 #repo{
-  width: 80%;
+  width: 10vw;
   height: 13%;
   margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-right: 2px;
   border-radius: 5px;
   border: solid 1px ;
   background-color: #1570EF;
@@ -291,7 +294,7 @@ html, body {
 }
 
 #leftupperdivitems{
-  width: 85%;
+  min-width: 85vw;
   height: 35%;
   /* border-radius: 5px; */
   /* border: solid 1px ; */
@@ -325,15 +328,16 @@ html, body {
 }
 
 #leftlowerdiv{
-  height: 70%;
-  width:auto;
-  background-color:#FAFAFA;
+ min-height: inherit;
+  min-width:inherit;
+  background-color:#FFFFFF;
   display: flex;
   flex-direction: column-reverse;
 }
 
 #leftlower {
-  /* background-color: yellow; */
+  margin-top: 350px;
+  background-color:yellow;
   margin-bottom: 30px;
   height: 60px;
   font-size: small;
@@ -377,6 +381,8 @@ html, body {
 #rightsideupper{
   /* border: solid 1px #D5D7DA; */
   border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 15px;
   
 }
 
@@ -399,12 +405,15 @@ html, body {
 
 #upperpartleft{
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  /* padding-left: 10px; */
 }
 
 #upperpartright{
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 5px;
   gap: 15px;
   margin-right: 10px;
 
@@ -413,27 +422,34 @@ html, body {
 
 #upperpartrightitem1{
   background-color: #FAFAFA;
-  height: 30px;
+  /* height: 100px; */
+  
   border-radius: 5px;
-  width: 80px;
-  height: 20px;
+  width: 100px;
+  height: 28px;
   font-size: small;  
   padding-left: 5px;
-  padding-top: 2px;
+  padding-top: 5px;
   border: solid 1px #D5D7DA;
   cursor: pointer;
+  display: flex;
+  gap: 3px;
+  
   
   /* padding: 10px; */
 }
 
 #upperpartrightitem2{
+  display: flex;
+  gap: 2px;
   background-color: #1570EF;
   color: #FAFAFA;
   padding-right: 5px;
   cursor: pointer;
-  height: 22px;
+  width: 150px;
+  height: 27px;
   /* padding:8px ; */
-  padding-top:3px ;
+  padding-top:5px ;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
@@ -493,6 +509,10 @@ html, body {
 
 }
 
+#new-top-div {
+display:none;
+}
+
 #itemlower{
   display: flex;
   padding-bottom: 10px;
@@ -512,3 +532,106 @@ html, body {
   display: inline-block;
 }
 
+
+#dropdownMenu {
+  position: fixed;
+  top: -100%; /* Initially above the screen */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0; /* Initially invisible */
+  transition: top 0.5s ease, opacity 0.3s ease; /* Smooth slide-down animation */
+}
+
+/* Dropdown Items Styling */
+#dropdownMenu .dropdown-item {
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Hover Effect for Dropdown Items */
+#dropdownMenu .dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Hidden Class - Keeps Dropdown Invisible */
+.dropdown-hidden {
+  top: -100%; /* Hidden by default, above the screen */
+  opacity: 0;
+}
+
+/* When Toggled, Dropdown Comes Down */
+#dropdownMenu:not(.dropdown-hidden) {
+  top: 0; /* Moves to top of the screen */
+  opacity: 1; /* Fade-in effect */
+}
+
+
+
+@media(max-width:590px){
+  #leftside {
+    display: none; /* Hides the left side on small screens */
+  }
+
+  #rightside {
+    min-width: 100vw; /* Ensures the right side takes the full width */
+  }
+
+  #upperpart{
+    display: flex;
+    flex-direction: column;
+    
+    
+  }
+
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1; /* Place overlay above everything else */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  #upperpartright{
+    margin-bottom: 5px;
+  }
+
+  #new-top-div {
+    display: contents;
+    height: 10vh;
+    max-width: inherit;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #EFF8FF;  */
+    /* text-align: center; */
+    /* padding-top: 20px; */
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 1px solid #D5D7DA;
+  }
+
+  #rightsideupper{
+    padding-left:5px;
+  }
+
+  #rightsidecontainer{
+    border: none;
+  }
+
+  #rightside{
+    min-height:100vh;
+    padding: 0px ;
+  }
+
+  
+}

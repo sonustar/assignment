@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
   <title>Document2</title>
 </head>
 <body>
@@ -51,9 +54,28 @@
     </div>
     <div id="rightside">
         <div id="rightsidecontainer">
+
+          <div id="new-top-div">
+            <img  style="height: 90%; width: 60%;"   src="./images/ant2.png" alt="">
+            <i style="margin-top: 10px;"  onclick="toggleDropdown()"  class="ri-menu-line"></i>
+          </div>
+          <div id="overlay"></div>
+
+          <div id="dropdownMenu" class="dropdown-hidden">
+            <div id="new-top-div">
+              <img  style="height: 90%; width: 60%;"   src="./images/ant2.png" alt="">
+              <i style="margin-top: 10px;" onclick="closeDropdown()" class="ri-twitter-x-fill"></i>
+            </div>
+            <div class="dropdown-item">AI Code Review</div>
+            <div class="dropdown-item">Cloud Security</div>
+            <div class="dropdown-item">How to use</div>
+            <div class="dropdown-item">Settings</div>
+            <div class="dropdown-item">Support</div>
+            <div class="dropdown-item">Logout</div>
+          </div>
           <div>
 
-            <div   style="padding-left: 15px; padding-top: 15px;" id="rightsideupper">
+            <div  id="rightsideupper">
               <div id="upperpart">
                 <div id="upperpartleft">
                   <b style="font-size: x-large;font-weight: 600; color: #181D27;">Repositories</b>
@@ -61,10 +83,12 @@
                 </div>
                   <div id="upperpartright">
                       <div id="upperpartrightitem1">
-                        <p>Refresh All</p>
+                        <i class="ri-refresh-line"></i>
+                        <p style="font-size: 13px;">Refresh All</p>
                       </div>
                       <div id="upperpartrightitem2">
-                        <p>+ Add Repositores</p>
+                        <i class="ri-add-line"></i>
+                        <p style="font-size: 13px;"> Add Repositores</p>
                       </div>
                     </div>
                   </div>
@@ -85,8 +109,8 @@
                           <p>React </p>
                           <span class="dot"></span>
                         </div>
-                          <div>
-                          <!-- icon  -->
+                          <div style="display: flex; gap: 3px;">
+                          <i class="ri-database-2-line"></i>
                           <p>5674kb</p>
                          </div>
                         <p>Updated 1 days ago</p>
@@ -98,12 +122,12 @@
                       <span>Private</span>
                     </div>
                     <div id="itemlower">
-                      <div style="display: flex; gap: 3px;">
+                      <div style="display: flex; gap: 2px;">
                         <p>Javascript </p>
                         <span class="dot"></span>
                       </div>
-                        <div>
-                        <!-- icon  -->
+                      <div style="display: flex; gap: 3px;">
+                        <i class="ri-database-2-line"></i>
                         <p>4521kb</p>
                        </div>
                       <p>Updated 5 days ago</p>
@@ -119,8 +143,8 @@
                       <p>Python </p>
                       <span class="dot"></span>
                     </div>
-                      <div>
-                      <!-- icon  -->
+                    <div style="display: flex; gap: 3px;">
+                      <i class="ri-database-2-line"></i>
                       <p>4521kb</p>
                      </div>
                     <p>Updated 3 days ago</p>
@@ -136,8 +160,8 @@
                     <p>Swift </p>
                     <span class="dot"></span>
                   </div>
-                    <div>
-                    <!-- icon  -->
+                  <div style="display: flex; gap: 3px;">
+                    <i class="ri-database-2-line"></i>
                     <p>3096kb</p>
                    </div>
                   <p>Updated 6 days ago</p>
@@ -153,8 +177,8 @@
                     <p>React </p>
                     <span class="dot"></span>
                   </div>
-                    <div>
-                    <!-- icon  -->
+                  <div style="display: flex; gap: 3px;">
+                    <i class="ri-database-2-line"></i>
                     <p>5674kb</p>
                    </div>
                   <p>Updated 1 days ago</p>
@@ -171,8 +195,8 @@
                       <p>React </p>
                       <span class="dot"></span>
                     </div>
-                      <div>
-                      <!-- icon  -->
+                    <div style="display: flex; gap: 3px;">
+                      <i class="ri-database-2-line"></i>
                       <p>5674kb</p>
                      </div>
                     <p>Updated 1 days ago</p>
@@ -188,8 +212,8 @@
                     <p>Swift </p>
                     <span class="dot"></span>
                   </div>
-                    <div>
-                    <!-- icon  -->
+                  <div style="display: flex; gap: 3px;">
+                    <i class="ri-database-2-line"></i>
                     <p>3096kb</p>
                    </div>
                   <p>Updated 6 days ago</p>
@@ -202,4 +226,28 @@
   </div>
   
 </body>
+
+<script>
+ function toggleDropdown() {
+      const dropdown = document.getElementById('dropdownMenu');
+      dropdown.classList.toggle('dropdown-visible');
+      dropdown.classList.toggle('dropdown-hidden');
+    }
+
+    // Function to close the dropdown
+    function closeDropdown() {
+      const dropdown = document.getElementById('dropdownMenu');
+      dropdown.classList.remove('dropdown-visible');
+      dropdown.classList.add('dropdown-hidden');
+    }
+
+    // Optionally, close dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('dropdownMenu');
+      const menuIcon = document.querySelector('.ri-menu-line');
+      if (!dropdown.contains(event.target) && !menuIcon.contains(event.target)) {
+        closeDropdown();
+      }
+    });
+</script>
 </html>
